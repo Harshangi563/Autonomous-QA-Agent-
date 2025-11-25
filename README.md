@@ -1,0 +1,74 @@
+##🧠 Autonomous QA Agent##
+Automated Test Case Generation, Script Creation & Execution using AI (Gemini) + Selenium
+
+##📌 Overview##
+The Autonomous QA Agent automatically:
+✔ Builds a Knowledge Base using uploaded support documents
+✔ Generates precise test cases using AI
+✔ Creates runnable Selenium automation scripts
+✔ Executes the scripts and displays test results
+This project helps testers automate test design and verification using AI-driven context understanding combined with UI automation via Selenium.
+
+##📁 Features##
+🔹 Upload support docs (specs, UI guidelines, HTML)
+🔹 AI-powered test case generation (Markdown format)
+🔹 AI-generated Selenium Python scripts
+🔹 Test execution from Streamlit UI
+🔹 Displays results with screenshot capture on failure
+
+##🧩Tech Stack##
+Component	       Technology
+Frontend	       Streamlit
+Backend	           Flask
+AI Engine	       Google Gemini
+Knowledge Base  	ChromaDB + LangChain
+Testing	Selenium    (Python)
+Parsing            	PyMuPDF, BeautifulSoup
+
+##📦 Dependencies##
+All required libraries are listed in requirements.txt
+
+##🛠️ Setup & Installation ##
+:-Clone the Repository
+:-Create & Activate Virtual Environment
+python -m venv venv
+venv\Scripts\activate       # Windows
+source venv/bin/activate    # macOS/Linux
+:-Install Requirements
+pip install -r requirements.txt
+:-Add API Key
+Create a .env file and add:
+GEMINI_API_KEY=your_gemini_key_here
+
+##Make sure your Python version is 3.9 – 3.11 (recommended: 3.10).##
+
+##Running the Application##
+Start Backend (Flask):-
+python app.py
+
+Start Frontend (Streamlit):-
+streamlit run ui.py
+###Ensure you start Flask first.###
+
+##🚀 Usage Workflow##
+1️⃣	Upload support docs (PDF, MD, TXT, JSON) + checkout.html
+2️⃣	Click Generate Test Cases
+3️⃣	Copy a test case row → paste in text area
+4️⃣	Click Generate Script
+5️⃣	Click Run Selenium Test
+6️⃣	View real-time output (PASS/FAIL)
+
+##📁 Support Document Roles##
+
+checkout.html:- UI elements, IDs, frontend behavior
+product_specs.md:- Pricing calculation & discount logic
+ui_ux_guide.txt	:-  UI validation, design & input rules
+api_endpoints.json:- API reference (optional for backened automation)
+
+##📸 Test Output Info##
+On success: "Test PASSED" message
+On failure: Screenshot saved as <Test_ID>_failure_screenshot.png
+
+##Example Test Case Format##
+| Test_ID | Feature | Test_Scenario | Expected_Result | Grounded_In |
+| TC-001 | Cart | Add 1x Product A | Total becomes $50. | product_specs.md |
