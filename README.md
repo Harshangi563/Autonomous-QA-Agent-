@@ -23,9 +23,9 @@ Streamlit, Flask, Google Gemini, ChromaDB, LangChain, Selenium, PyMuPDF, Beautif
 All required libraries are listed in requirements.txt
 
 🛠️ Setup & Installation :-
-:-Clone the Repository
-:-Create & Activate Virtual Environment by command:
+Clone the Repository and Create & Activate Virtual Environment by command:
 python -m venv venv
+
 #For windows run:-venv\Scripts\activate
 #For macOS/Linus run:-source venv/bin/activate  
 
