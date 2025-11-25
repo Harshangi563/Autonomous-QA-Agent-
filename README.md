@@ -6,8 +6,7 @@ The Autonomous QA Agent automatically:
 ✔ Builds a Knowledge Base using uploaded support documents
 ✔ Generates precise test cases using AI
 ✔ Creates runnable Selenium automation scripts
-✔ Executes the scripts and displays test results
-This project helps testers automate test design and verification using AI-driven context understanding combined with UI automation via Selenium.
+✔ Executes the scripts and displays test results.
 
 📁 Features:-
 🔹 Upload support docs (specs, UI guidelines, HTML)
@@ -17,23 +16,19 @@ This project helps testers automate test design and verification using AI-driven
 🔹 Displays results with screenshot capture on failure
 
 🧩Tech Stack:-
-Component	       Technology
-Frontend	       Streamlit
-Backend	           Flask
-AI Engine	       Google Gemini
-Knowledge Base  	ChromaDB + LangChain
-Testing	Selenium    (Python)
-Parsing            	PyMuPDF, BeautifulSoup
+
+Streamlit, Flask, Google Gemini, ChromaDB, LangChain, Selenium, PyMuPDF, BeautifulSoup.
 
 📦 Dependencies:-
 All required libraries are listed in requirements.txt
 
 🛠️ Setup & Installation :-
 :-Clone the Repository
-:-Create & Activate Virtual Environment
+:-Create & Activate Virtual Environment by command:
 python -m venv venv
-venv\Scripts\activate       # Windows
-source venv/bin/activate    # macOS/Linux
+#For windows run:-venv\Scripts\activate
+#For macOS/Linus run:-source venv/bin/activate  
+
 :-Install Requirements
 pip install -r requirements.txt
 :-Add API Key
@@ -43,10 +38,10 @@ GEMINI_API_KEY=your_gemini_key_here
 Make sure your Python version is 3.9 – 3.11 (recommended: 3.10).
 
 Running the Application
-Start Backend (Flask):-
+-Start Backend (Flask):-
 python app.py
 
-Start Frontend (Streamlit):-
+-Start Frontend (Streamlit):-
 streamlit run ui.py
 ###Ensure you start Flask first.###
 
@@ -60,14 +55,14 @@ streamlit run ui.py
 
 📁 Support Document Roles:-
 
-checkout.html:- UI elements, IDs, frontend behavior
-product_specs.md:- Pricing calculation & discount logic
-ui_ux_guide.txt	:-  UI validation, design & input rules
-api_endpoints.json:- API reference (optional for backened automation)
+checkout.html:- UI elements, IDs, frontend behavior.
+product_specs.md:- Pricing calculation & discount logic.
+ui_ux_guide.txt	:-  UI validation, design & input rules.
+api_endpoints.json:- API reference (optional for backened automation).
 
 📸 Test Output Info
-On success: "Test PASSED" message
-On failure: Screenshot saved as <Test_ID>_failure_screenshot.png
+On success: "Test PASSED" message.
+On failure: Screenshot saved as <Test_ID>_failure_screenshot.png.
 
 ##Example Test Case Format##
 | Test_ID | Feature | Test_Scenario | Expected_Result | Grounded_In |
