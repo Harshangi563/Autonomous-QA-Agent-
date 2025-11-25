@@ -68,18 +68,23 @@ streamlit run ui.py
 5️⃣ Click Run Selenium Test
 6️⃣ View execution result (PASS/FAIL)
 
-📂 Support Document Roles
-File	Purpose
-checkout.html	UI elements, IDs, frontend behavior
-product_specs.md	Pricing logic & discounts
-ui_ux_guide.txt	UI validation, design & input rules
-api_endpoints.json	API reference (optional for backend automation)
+## 📂 Support Document Roles
+
+| File              | Purpose                                      |
+|------------------|----------------------------------------------|
+| checkout.html     | UI elements, IDs, frontend behavior          |
+| product_specs.md  | Pricing logic & discounts                    |
+| ui_ux_guide.txt   | UI validation, design & input rules          |
+| api_endpoints.json| API reference (optional for backend automation) |
+
 📸 Test Output Information
 
 ✔ Pass: "Test PASSED"
 ❌ Fail: Screenshot saved as Test_ID_failure_screenshot.png
 
-📊 Example Test Case Format
-| Test_ID | Feature | Test_Scenario       | Expected_Result     | Grounded_In       |
-|---------|---------|---------------------|---------------------|-------------------|
-| TC-001  | Cart    | Add 1x Product A    | Total becomes $50.  | product_specs.md  |
+## 📊 Example Test Case Format
+
+| Test_ID | Feature              | Test_Scenario                            | Expected_Result                         | Grounded_In        |
+|---------|----------------------|-------------------------------------------|-----------------------------------------|-------------------|
+| TC-001 | Payment Button UI     | Verify “Pay Now” button color             | Button appears green as per UI standard | checkout.html     |
+
