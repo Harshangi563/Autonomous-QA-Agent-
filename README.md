@@ -31,8 +31,9 @@ python -m venv venv
 
 :-Install Requirements
 pip install -r requirements.txt
-:-Add API Key
-Create a .env file and add:
+
+:-Add API Key and create a .env file and add
+
 GEMINI_API_KEY=your_gemini_key_here
 
 Make sure your Python version is 3.9 – 3.11 (recommended: 3.10).
