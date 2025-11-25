@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Checkout Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ✨ FULL WIDTH but with soft padding around edges */
+        body {
+            margin: 0;
+            padding: 20px; /* 👈 Keeps comfortable gaps */
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* 📌 Full responsive layout with comfortable visuals */
+        .container {
+            width: 100%;
+            max-width: none; /* 👈 Ensures full width */
+            padding: 30px;
+            border-radius: 18px;
+            background: white;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.12);
+        }
+
+        /* 🔹 UI Styles */
+        h1 { text-align: center; color: #005a48; font-size: 28px; }
+
+        .section-title {
+            font-size: 18px;
+            color: #004d40;
+            font-weight: 600;
+            margin-top: 20px;
+            padding-left: 10px;
+            border-left: 4px solid #00a896;
+        }
+
+        .product-grid { display: flex; gap: 15px; margin-top: 10px; }
+        .product-card {
+            flex: 1;
+            background: #f1faf9;
+            padding: 15px;
+            border-radius: 14px;
+            text-align: center;
+            transition: 0.2s;
+        }
+        .product-card:hover { transform: translateY(-3px); }
+        .product-title { font-size: 15px; font-weight: 500; margin: 6px 0; }
+        .icon { font-size: 26px; color: #00695c; }
+
+        .btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 13px;
+            margin: 4px;
+        }
+        .add-btn { background: #00796b; color: white; }
+        .remove-btn { background: #f4511e; color: white; }
+
+        .cart-summary {
+            background: #f4fbe3;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+        .cart-row { display: flex; justify-content: space-between; font-size: 15px; padding: 4px 0; }
+
+        input[type="text"], input[type="email"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-top: 4px;
+        }
+
+        .row { display: flex; gap: 15px; margin-top: 15px; }
+        .col { flex: 1; background: #e0f7fa; padding: 15px; border-radius: 12px; }
+        .radio-row { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; }
+        .radio-icon { font-size: 20px; margin-right: 5px; }
+
+        .pay-btn {
+            width: 100%;
+            background: #00796b;
+            padding: 14px;
+            color: white;
+            border-radius: 12px;
+            border: none;
+            font-size: 17px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        .pay-btn:hover { background: #004d40; }
+
+        .error { color: red; font-size: 14px; }
+        .success { color: green; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🛒 Checkout</h1>
+
+    <p class="section-title">Products</p>
+    <div class="product-grid">
+        <div class="product-card">
+            <div class="icon">🧾</div>
+            <div class="product-title">Product A - $50</div>
+            <button id="addA" class="btn add-btn">Add</button>
+            <button id="removeA" class="btn remove-btn">Remove</button>
+        </div>
+        <div class="product-card">
+            <div class="icon">🎁</div>
+            <div class="product-title">Product B - $30</div>
+            <button id="addB" class="btn add-btn">Add</button>
+            <button id="removeB" class="btn remove-btn">Remove</button>
+        </div>
+        <div class="product-card">
+            <div class="icon">📦</div>
+            <div class="product-title">Product C - $20</div>
+            <button id="addC" class="btn add-btn">Add</button>
+            <button id="removeC" class="btn remove-btn">Remove</button>
+        </div>
+    </div>
+
+    <p class="section-title">Discount</p>
+    <input type="text" id="discountCode" placeholder="Enter code (SAVE15)">
+    <p id="discountMsg" class="success"></p>
+
+    <p class="section-title">Cart Summary</p>
+    <div id="cartSummary" class="cart-summary">No items added yet</div>
+
+    <p class="section-title">Total Price: <b><span id="total">$0.00</span></b></p>
+
+    <div class="row">
+        <div class="col">
+            <p class="section-title"><span class="radio-icon">🚚</span> Shipping</p>
+            <label class="radio-row"><span>Standard (Free)</span><input type="radio" name="shipping" value="standard" checked></label>
+            <label class="radio-row"><span>Express ($10)</span><input type="radio" name="shipping" value="express"></label>
+        </div>
+        <div class="col">
+            <p class="section-title"><span class="radio-icon">💳</span> Payment</p>
+            <label class="radio-row"><span>Credit Card</span><input type="radio" name="payment" value="credit" checked></label>
+            <label class="radio-row"><span>PayPal</span><input type="radio" name="payment" value="paypal"></label>
+        </div>
+    </div>
+
+    <p class="section-title">User Details</p>
+    <input id="name" type="text" placeholder="Name *">
+    <p id="nameError" class="error"></p>
+    <input id="email" type="email" placeholder="Email *">
+    <p id="emailError" class="error"></p>
+    <input id="address" type="text" placeholder="Address *">
+    <p id="addressError" class="error"></p>
+
+    <button id="payBtn" class="pay-btn">Pay Now</button>
+    <p id="successMsg" class="success"></p>
+</div>
+
+<script>
+    let quantities = { A: 0, B: 0, C: 0 };
+    let prices = { A: 50, B: 30, C: 20 };
+
+    function updateCart() {
+        let cart = document.getElementById("cartSummary");
+        cart.innerHTML = "";
+        Object.keys(quantities).forEach(p => {
+            if (quantities[p] > 0) {
+                cart.innerHTML += `<div class="cart-row"><span>Product ${p}</span><span>${quantities[p]} × $${prices[p]}</span></div>`;
+            }
+        });
+        if (cart.innerHTML === "") cart.innerHTML = "No items added yet";
+    }
+
+    function updateTotal() {
+        let total = (quantities.A * 50) + (quantities.B * 30) + (quantities.C * 20);
+        if (document.querySelector('input[name="shipping"]:checked').value === "express") total += 10;
+        if (document.getElementById("discountCode").value.trim() === "SAVE15") {
+            total *= 0.85;
+            document.getElementById("discountMsg").innerText = "✔ 15% Discount Applied!";
+        } else document.getElementById("discountMsg").innerText = "";
+        document.getElementById("total").innerText = "$" + total.toFixed(2);
+    }
+
+    ["A", "B", "C"].forEach(p => {
+        document.getElementById("add" + p).onclick = () => { quantities[p]++; updateCart(); updateTotal(); };
+        document.getElementById("remove" + p).onclick = () => { if (quantities[p] > 0) quantities[p]--; updateCart(); updateTotal(); };
+    });
+
+    document.querySelectorAll('input').forEach(el => el.addEventListener("input", updateTotal));
+    document.querySelectorAll('input[name="shipping"]').forEach(el => el.addEventListener("change", updateTotal));
+
+    document.getElementById("payBtn").onclick = () => {
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let address = document.getElementById("address").value.trim();
+
+        let valid = true;
+        document.getElementById("successMsg").innerText = "";
+
+        if (!/^[A-Za-z\s]+$/.test(name)) {
+            document.getElementById("nameError").innerText =
+                "Name should contain only letters and spaces (no numbers or symbols)";
+            valid = false;
+        } else document.getElementById("nameError").innerText = "";
+
+        if (!email.includes("@") || !email.includes(".")) {
+            document.getElementById("emailError").innerText = "Invalid Email";
+            valid = false;
+        } else document.getElementById("emailError").innerText = "";
+
+        if (!address || /[@!#$%^&*()]/.test(address)) {
+            document.getElementById("addressError").innerText = "Invalid Address";
+            valid = false;
+        } else document.getElementById("addressError").innerText = "";
+
+        if (valid) document.getElementById("successMsg").innerText = "Payment Successful!";
+    };
+</script>
+
+</body>
+</html>
