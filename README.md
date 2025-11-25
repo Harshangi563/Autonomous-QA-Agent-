@@ -38,22 +38,48 @@ All requirements are available in `requirements.txt`.
    ```bash
    pip install -r requirements.txt
 
-:-Add API Key and create a .env file and add
+4. **Add API Key by Creating a .env file and add:**
 
 GEMINI_API_KEY=your_gemini_key_here
 
-Make sure your Python version is 3.9 – 3.11 (recommended: 3.10).
 
-Running the Application -Start Backend (Flask):- python app.py
+👉 Recommended Python version: 3.10 (Supported: 3.9 – 3.11)
 
--Start Frontend (Streamlit):- streamlit run ui.py ###Ensure you start Flask first.###
+🚀 Running the Application
 
-🚀 Usage Workflow:- 1️⃣ Upload support docs (PDF, MD, TXT, JSON) + checkout.html 2️⃣ Click Generate Test Cases 3️⃣ Copy a test case row → paste in text area 4️⃣ Click Generate Script 5️⃣ Click Run Selenium Test 6️⃣ View real-time output (PASS/FAIL)
+Start backend (Flask):
+   ```bash
+python app.py
+  ```
 
-📁 Support Document Roles:-
+Start frontend (Streamlit):
+   ```bash
+streamlit run ui.py
+  ```
 
-checkout.html:- UI elements, IDs, frontend behavior. product_specs.md:- Pricing calculation & discount logic. ui_ux_guide.txt :- UI validation, design & input rules. api_endpoints.json:- API reference (optional for backened automation).
+⚠ Run Flask first before starting Streamlit.
 
-📸 Test Output Info On success: "Test PASSED" message. On failure: Screenshot saved as <Test_ID>_failure_screenshot.png.
+🔁 Usage Workflow
 
-##Example Test Case Format## | Test_ID | Feature | Test_Scenario | Expected_Result | Grounded_In | | TC-001 | Cart | Add 1x Product A | Total becomes $50. | product_specs.md |
+1️⃣ Upload support docs (PDF, MD, TXT, JSON) and checkout.html
+2️⃣ Click Generate Test Cases
+3️⃣ Copy a Markdown test case row and paste into input area
+4️⃣ Click Generate Script
+5️⃣ Click Run Selenium Test
+6️⃣ View execution result (PASS/FAIL)
+
+📂 Support Document Roles
+File	Purpose
+checkout.html	UI elements, IDs, frontend behavior
+product_specs.md	Pricing logic & discounts
+ui_ux_guide.txt	UI validation, design & input rules
+api_endpoints.json	API reference (optional for backend automation)
+📸 Test Output Information
+
+✔ Pass: "Test PASSED"
+❌ Fail: Screenshot saved as Test_ID_failure_screenshot.png
+
+📊 Example Test Case Format
+| Test_ID | Feature | Test_Scenario       | Expected_Result     | Grounded_In       |
+|---------|---------|---------------------|---------------------|-------------------|
+| TC-001  | Cart    | Add 1x Product A    | Total becomes $50.  | product_specs.md  |
