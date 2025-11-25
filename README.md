@@ -1,7 +1,7 @@
-##🧠 Autonomous QA Agent##
+🧠 Autonomous QA Agent
 Automated Test Case Generation, Script Creation & Execution using AI (Gemini) + Selenium
 
-##📌 Overview##
+📌 Overview
 The Autonomous QA Agent automatically:
 ✔ Builds a Knowledge Base using uploaded support documents
 ✔ Generates precise test cases using AI
@@ -9,14 +9,14 @@ The Autonomous QA Agent automatically:
 ✔ Executes the scripts and displays test results
 This project helps testers automate test design and verification using AI-driven context understanding combined with UI automation via Selenium.
 
-##📁 Features##
+📁 Features
 🔹 Upload support docs (specs, UI guidelines, HTML)
 🔹 AI-powered test case generation (Markdown format)
 🔹 AI-generated Selenium Python scripts
 🔹 Test execution from Streamlit UI
 🔹 Displays results with screenshot capture on failure
 
-##🧩Tech Stack##
+🧩Tech Stack
 Component	       Technology
 Frontend	       Streamlit
 Backend	           Flask
@@ -25,10 +25,10 @@ Knowledge Base  	ChromaDB + LangChain
 Testing	Selenium    (Python)
 Parsing            	PyMuPDF, BeautifulSoup
 
-##📦 Dependencies##
+📦 Dependencies
 All required libraries are listed in requirements.txt
 
-##🛠️ Setup & Installation ##
+🛠️ Setup & Installation 
 :-Clone the Repository
 :-Create & Activate Virtual Environment
 python -m venv venv
@@ -40,9 +40,9 @@ pip install -r requirements.txt
 Create a .env file and add:
 GEMINI_API_KEY=your_gemini_key_here
 
-##Make sure your Python version is 3.9 – 3.11 (recommended: 3.10).##
+Make sure your Python version is 3.9 – 3.11 (recommended: 3.10).
 
-##Running the Application##
+Running the Application
 Start Backend (Flask):-
 python app.py
 
@@ -50,7 +50,7 @@ Start Frontend (Streamlit):-
 streamlit run ui.py
 ###Ensure you start Flask first.###
 
-##🚀 Usage Workflow##
+🚀 Usage Workflow
 1️⃣	Upload support docs (PDF, MD, TXT, JSON) + checkout.html
 2️⃣	Click Generate Test Cases
 3️⃣	Copy a test case row → paste in text area
@@ -58,14 +58,14 @@ streamlit run ui.py
 5️⃣	Click Run Selenium Test
 6️⃣	View real-time output (PASS/FAIL)
 
-##📁 Support Document Roles##
+📁 Support Document Roles
 
 checkout.html:- UI elements, IDs, frontend behavior
 product_specs.md:- Pricing calculation & discount logic
 ui_ux_guide.txt	:-  UI validation, design & input rules
 api_endpoints.json:- API reference (optional for backened automation)
 
-##📸 Test Output Info##
+📸 Test Output Info
 On success: "Test PASSED" message
 On failure: Screenshot saved as <Test_ID>_failure_screenshot.png
 
