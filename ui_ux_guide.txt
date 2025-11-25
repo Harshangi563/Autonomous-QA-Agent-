@@ -1,0 +1,7 @@
+UI/UX Guidelines
+
+- Validation errors must be displayed in RED text.
+- The "Pay Now" button must be GREEN .
+- The success message should say: "Payment Successful!" under the button.
+- Fields Name, Email, and Address are mandatory.
+- Email must follow standard format (contain '@').
